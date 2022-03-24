@@ -4,23 +4,28 @@ export default function Textforms(props) {
   const Uppercase = ()=>{
     let newText = text1.toUpperCase()
     setText1(newText)
+    props.showAlert('Converted to UpperCase','success')
   }
   const lowercase = ()=>{
     let newText = text1.toLowerCase()
     setText1(newText)
+    props.showAlert('Converted to LowerCase','success')
   }
   const copy = ()=>{
     var text = document.getElementById('myBox');
     text.select();
     navigator.clipboard.writeText(text.value)
+    props.showAlert('text copied to clipboard','success')
   }
   const removespaces = ()=>{
     let newText = text1.split(/[ ]+/);
     setText1(newText.join(" "))
+    props.showAlert('Removed Extra Spaces','success')
   }
   const cleartext = ()=>{
     let newText = " "
     setText1(newText)
+    props.showAlert('Area cleared','success')
   }
   const handleonchange = (e) =>{
     console.log("handle onchange")
